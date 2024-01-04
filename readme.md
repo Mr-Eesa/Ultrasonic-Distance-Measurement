@@ -3,7 +3,7 @@ This Arduino project utilizes an ultrasonic sensor to measure distance and displ
 
 📂 Project Files
 
-Main Code: distance_measurement.ino
+Main Code: Ultrasonic Distance Measurement.ino
 
 📦 Dependencies
 
