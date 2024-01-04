@@ -1,7 +1,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // Initializing a 16x2 LCD with I2C address 0x27
 
 #define trig 8
 #define echo 7
@@ -18,9 +18,8 @@ void setup() {
   pinMode(buzzer, OUTPUT);
   pinMode(trig, OUTPUT);
   pinMode(echo, INPUT);
-  lcd.init();
-
-  lcd.backlight();
+  lcd.init();  // Initializing the LCD
+  lcd.backlight();  // Turning on the backlight
 }
 
 void loop() {
@@ -35,23 +34,23 @@ void loop() {
   delay(1000);
 
   lcd.setCursor(0, 0);
-  lcd.print("        ");
+  lcd.print("        ");  // Printing spaces to clear the LCD
 
   lcd.setCursor(0, 0);
-  lcd.print(distance);
+  lcd.print(distance);  // Printing the distance on the LCD
   delay(300);
 
   lcd.setCursor(0, 1);
-  lcd.print("bat-man");
+  lcd.print("bat-man");  // Printing "bat-man" on the second line of the LCD
 
   if (distance > 6) {
-    analogWrite(motor, 90);
+    analogWrite(motor, 90);  // Controlling the motor based on distance
   } else {
     analogWrite(motor, 190);
   }
 
   if (distance < 6) {
-    digitalWrite(buzzer, HIGH);
+    digitalWrite(buzzer, HIGH);  // Activating the buzzer based on distance
     delay(300);
     digitalWrite(buzzer, LOW);
   } else {
